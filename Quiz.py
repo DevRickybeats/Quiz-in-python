@@ -62,6 +62,9 @@ ready = input("Would you like to begin? (y/n) ")
 if ready == 'Y' or ready == 'y':
     some_sleep(0.4)
     funct()
+elif ready == 'N' or ready == 'n':
+    ready = input("Exit? (y/n) ")
+    if ready == 'Y' or ready == 'y': exit()
 else: 
     some_sleep(0.4)
     print('\nThe End')
