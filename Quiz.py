@@ -49,7 +49,7 @@ def quiz ():
     #validate answer
         while answer  == '':
             print (questions)
-            answer = input('Pls, Make an input: ')
+            answer = input('Pls, make an input: ')
 
     #Check for the right answer
         right_answer = options[0]
@@ -67,7 +67,7 @@ def quiz ():
     
     print(f'\nYou answered {correct_answer} correctly!')
     print(f'\nYou failed {failed_answer}')
-    Percentagemath = correct_answer/5 * 100
+    Percentagemath = correct_answer/10 * 100
     percentage = print(f'\nYou got {Percentagemath}%')
 
 
@@ -88,8 +88,6 @@ else:
     exit()
   
   
-  
-
 some_sleep(0.2)
 prompt = input("\nDo you want to play again? (y/n) ")
 #setting some conditions
