@@ -36,6 +36,7 @@ print(f'\nHey {User_info!r}, Welcome to your quiz: \n')
 questionsss = list(questionsss.items())
 random.shuffle(questionsss)
 
+
 # defining my function to print the questions and validate the answers
 def quiz ():
     correct_answer = 0
@@ -62,8 +63,8 @@ def quiz ():
             some_sleep(0.2)
             print(f'\nWrong Answer, The answer is {right_answer}')
             failed_answer += 1
-            # correct_answer = correct_answer - 1
-            
+           
+           
     
     print(f'\nYou answered {correct_answer} correctly!')
     print(f'\nYou failed {failed_answer}')
