@@ -1,4 +1,17 @@
 import time
+import random
+
+user_score = {}
+
+questionsss = {
+    'What is 10 multiplied by 10? ': ['100'],
+    'What is the capital of Nigeria? ' : ['lagos'],
+    'Which element is said to keep bones strong?': ['calcium'],
+    'What is the main ingredient in guacamole?' : ['avocado'],
+    'Rojo is the Spanish word for which colour?' : ['red'],
+    }
+
+
 
 
 def some_sleep(x):
@@ -14,21 +27,16 @@ print(f'\nHey {User_info!r}, Welcome to your quiz: \n')
 
 
 
-questionsss = {
-    'What is 10 multiplied by 10? ': ['100'],
-    'What is the capital of Nigeria? ' : ['lagos'],
-    'Which element is said to keep bones strong?': ['calcium'],
-    'What is the main ingredient in guacamole?' : ['avocado'],
-    }
+
+questionsss = list(questionsss.items())
+random.shuffle(questionsss)
 
 
-
-
-def funct ():
+def quiz ():
     correct_answer = 0
     failed_answer = 0
     total_score = 0
-    for questions, options in questionsss.items():
+    for questions, options in questionsss:
         print (f"\n{questions}") 
         answer = input()
         answer = answer.lower()
@@ -49,19 +57,23 @@ def funct ():
             some_sleep(0.2)
             print(f'\nWrong Answer, The answer is {right_answer}')
             failed_answer += 1
-            total_score += 1
+            # correct_answer = correct_answer - 1
+            
     
     print(f'\nYou answered {correct_answer} correctly!')
     print(f'\nYou failed {failed_answer}')
-    Percentagemath = correct_answer/4 * 100
+    Percentagemath = correct_answer/5 * 100
     percentage = print(f'\nYou got {Percentagemath}%')
 
 
 ready = input("Would you like to begin? (y/n) ")
 #setting some conditions
-if ready == 'Y' or ready == 'y':
+# while ready != 'Y' or ready != 'y' or ready != 'n' or ready != 'N':
+#     ready = input("Pls make an input")
+
+if ready == 'Y' or ready == 'y' or ready == 'yes':
     some_sleep(0.4)
-    funct()
+    quiz()
 elif ready == 'N' or ready == 'n':
     ready = input("Exit? (y/n) ")
     if ready == 'Y' or ready == 'y': exit()
@@ -69,7 +81,9 @@ else:
     some_sleep(0.4)
     print('\nThe End')
     exit()
-    
+  
+  
+  
 
 some_sleep(0.2)
 prompt = input("\nDo you want to play again? (y/n) ")
@@ -80,7 +94,7 @@ while True:
         new_User_info = input('\nHi, What is your name? ')
         some_sleep(0.3)
         print(f'\nHey {new_User_info!r}, Welcome to your quiz: \n')
-        funct()
+        quiz()
         prompt = input("\nDo you want to play again? (y/n) ")
     else:
         some_sleep(0.5)
