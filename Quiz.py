@@ -9,6 +9,11 @@ questionsss = {
     'Which element is said to keep bones strong?': ['calcium'],
     'What is the main ingredient in guacamole?' : ['avocado'],
     'Rojo is the Spanish word for which colour?' : ['red'],
+    'The logo for luxury car maker Porsche features which animal?' : ['horse'],
+    'In tennis, what piece of fruit is found at the top of the mens Wimbledon trophy?' : ['pineapple'],
+    'What is a female elephant called?' : ['cow'],
+    'Franz Josef Strauss Airport is located in which country?' : ['germany'],
+    'Caledonia was the Roman name for which modern day country?' : ['scotland']
     }
 
 
