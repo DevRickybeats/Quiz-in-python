@@ -18,11 +18,11 @@ questionsss = {
 
 
 
-
+# defining a sleep function to control the print timer on the terminal
 def some_sleep(x):
     return time.sleep(x)
 
-
+# Requesting user info and making sure it's not an empty string
 User_info = input('Hello, What is your name? ')
 while User_info  == '':
            User_info = input('Please enter your name: ')
@@ -32,11 +32,11 @@ print(f'\nHey {User_info!r}, Welcome to your quiz: \n')
 
 
 
-
+# converting my questionsss dictionary to a list so I can call random.shuffle on it
 questionsss = list(questionsss.items())
 random.shuffle(questionsss)
 
-
+# defining my function to print the questions and validate the answers
 def quiz ():
     correct_answer = 0
     failed_answer = 0
