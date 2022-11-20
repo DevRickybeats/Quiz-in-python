@@ -5,14 +5,14 @@ user_score = []
 
 
 questions_dict = {
-    'What is 10 multiplied by 10? ': ['100'],
-    'What is the capital of Nigeria? ' : ['lagos'],
-    'Which element is said to keep bones strong?': ['calcium'],
+    # 'What is 10 multiplied by 10? ': ['100'],
+    # 'What is the capital of Nigeria? ' : ['lagos'],
+    # 'Which element is said to keep bones strong?': ['calcium'],
     # 'What is the main ingredient in guacamole?' : ['avocado'],
-    # 'Rojo is the Spanish word for which colour?' : ['red'],
+    'Rojo is the Spanish word for which colour?' : ['red'],
     # 'The logo for luxury car maker Porsche features which animal?' : ['horse'],
     # 'In tennis, what piece of fruit is found at the top of the mens Wimbledon trophy?' : ['pineapple'],
-    # 'What is a female elephant called?' : ['cow'],
+    'What is a female elephant called?' : ['cow'],
     # 'Franz Josef Strauss Airport is located in which country?' : ['germany'],
     # 'Caledonia was the Roman name for which modern day country?' : ['scotland']
     }
@@ -66,71 +66,54 @@ def quiz ():
     
     print(f'\nYou answered {correct_answer} correctly!')
     print(f'\nYou failed {failed_answer}')
-    Percentagemath = int(correct_answer/3 * 100)
+    Percentagemath = int(correct_answer/2 * 100)
     user_score_percentage += Percentagemath
     percentage = print(f'\nYou got {Percentagemath}%')
 
     user_score.append((User_info,user_score_percentage))
-                      
+ 
                       
 #defined a function to begin the Quiz
 def begin ():
     global ready
-    ready = input("Would you like to begin? (y/n) ")
+    ready = input("Would you like to begin? (y/n) ").lower()
+    if ready != 'y' and ready != 'n':
+        begin()
+    quiz()
 
-#Called the begin function
+# #Called the begin function
 begin()
-
-#defined a function to check for empty strings
-def empty_string(x):
-    while x  == '':
-            x = input('Pls, make an input: ')
-            x = x.lower()
-
-
-empty_string(ready)
-
-def kick_off(x):
-    if x == 'no' or x == 'n':
-        close = input("Exit? (y/n) ")
-        empty_string(close)
-        if close == 'y': exit()
-        else: quiz()
-    else:
-        quiz()
-    
-kick_off(ready)
-      
+   
   
 some_sleep(0.2)
-prompt = input("\nDo you want to play again? (y/n) 1st")
-empty_string(prompt)
+iop = True
 
-while prompt:
-    kick_off(prompt)
-    prompt = input("\nDo you want to play again? (y/n) ")
-    empty_string(prompt)
-    if prompt == 'n':
-        prompt = False
+def replay():
+    replay_response = input('\nDo you want to play again? ').lower()
+    if replay_response == 'y':
+        quiz()
+    elif replay_response == 'n':
+        winner = max(user_score, key=lambda tup: tup[1])
+        print(user_score)
+        for x in winner:
+            print(f"\nHey! {x!r} got the highest point ")
+            break
+        average_score = []
+        for x in user_score:
+            for y in x:
+                average_score.append(y)
+                
+        only_numbers = [x for x in average_score if isinstance(x,int)]
+        len_of_scores = len(only_numbers)
+        total = 0
+        for i in only_numbers:
+            total += i
+        avg = total / len_of_scores
+        print(f'\nThe average score amongst all users is {avg!r}')
+        exit()
+    else:
+        replay()
+
+while iop: replay()
     
-        
-
-# #setting some conditions
-
-# if prompt == 'y' or prompt == 'yes':
-#     some_sleep(0.3)
-#     quiz()
-#     # prompt = input("\nDo you want to play again? (y/n) ") 
-# else:
-#     some_sleep(0.5)
-#     print('\nThe End')
-
-print(user_score)
-    
-
-
-# highest_score = max(user_score)
-# print(highest_score)
-# print(f"Hey! {highest_score!r} got this highest point")
-
 
