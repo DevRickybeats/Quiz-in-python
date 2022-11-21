@@ -3,7 +3,6 @@ import random
 
 user_score = []
 
-
 questions_dict = {
     # 'What is 10 multiplied by 10? ': ['100'],
     # 'What is the capital of Nigeria? ' : ['lagos'],
@@ -39,6 +38,7 @@ def quiz ():
            User_info = input('Please enter your name: ')
     some_sleep(0.3)
     print(f'\nHey {User_info!r}, Welcome to your quiz: ')
+    
 
     for questions, options in questions_list:
         print (f"\n{questions}") 
@@ -61,30 +61,31 @@ def quiz ():
         else:
             some_sleep(0.2)
             print(f'\nWrong Answer, The answer is {right_answer}')
-            failed_answer += 1          
+            failed_answer += 1       
+       
+           
            
     
     print(f'\nYou answered {correct_answer} correctly!')
     print(f'\nYou failed {failed_answer}')
     Percentagemath = int(correct_answer/2 * 100)
     user_score_percentage += Percentagemath
-    percentage = print(f'\nYou got {Percentagemath}%')
+    print(f'\nYou got {Percentagemath}%')
 
     user_score.append((User_info,user_score_percentage))
  
                       
 #defined a function to begin the Quiz
 def begin ():
-    global ready
     ready = input("Would you like to begin? (y/n) ").lower()
     if ready != 'y' and ready != 'n':
         begin()
     quiz()
 
-# #Called the begin function
+#Call the begin function
 begin()
    
-  
+   
 some_sleep(0.2)
 iop = True
 
@@ -108,11 +109,12 @@ def replay():
         total = 0
         for i in only_numbers:
             total += i
-        avg = total / len_of_scores
-        print(f'\nThe average score amongst all users is {avg!r}')
+        avg = int(total / len_of_scores)
+        print(f'\nThe average score amongst all users is {avg!r}%')
         exit()
     else:
         replay()
+
 
 while iop: replay()
     
