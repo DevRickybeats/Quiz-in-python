@@ -4,6 +4,8 @@ import random
 
 user_score = []
 
+global questions_dict
+
 questions_dict = {
     'What is 10 multiplied by 10? ': ['100'],
     'What is the capital of Nigeria? ' : ['lagos'],
@@ -24,13 +26,6 @@ def some_sleep(x):
 
 
 # converting my questionsss dictionary to a list so I can call random.shuffle on it
-
-
-# for x in questions_list in range(3):
-#     print(x)
-#     new_questions_list.append(x)
-    
-
 
 # defining my function to print the questions and validate the answers
 def quiz ():
@@ -55,7 +50,11 @@ def quiz ():
                 continue
             else:
                 break
+    
     tried()
+    
+    if n_o_q > len(questions_dict):
+                tried()
     questions_list = list(questions_dict.items())
     random.shuffle(questions_list)
     new_questions_list = questions_list[0:n_o_q]
@@ -101,15 +100,15 @@ def begin ():
     ready = input("Would you like to begin? (y/n) ").lower()
     if ready != 'y' and ready != 'n':
         begin()
+    elif ready == 'n' : quit()
     quiz()
 
 # Call the begin function
 begin()
-# quiz()
    
    
 some_sleep(0.2)
-iop = True
+repeat = True
 
 def replay():
     replay_response = input('\nDo you want to play again? (y/n) ').lower()
@@ -139,5 +138,5 @@ def replay():
         replay()
 
 
-while iop: replay()
+while repeat: replay()
     
