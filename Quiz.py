@@ -40,21 +40,27 @@ def quiz ():
     some_sleep(0.3)
     print(f'\nHey {User_info!r}, Welcome to your quiz: ')
     
+    length = len(questions_dict)
+    
     def tried():
         while True:
             try:
                 global n_o_q
                 n_o_q = int(input('\nHow many questions do you want? '))
             except ValueError:
-                print('Please enter a number from 1-20 ')
+                print(f'Please enter a number from 1-{length} ')
                 continue
             else:
                 break
     
     tried()
-    
-    if n_o_q > len(questions_dict):
-                tried()
+    while True:
+        if n_o_q > length:
+            print(f'Please enter a number from 1-{length} ')
+            tried()
+        else:
+            break
+                
     questions_list = list(questions_dict.items())
     random.shuffle(questions_list)
     new_questions_list = questions_list[0:n_o_q]
