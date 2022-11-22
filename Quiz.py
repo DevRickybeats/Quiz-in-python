@@ -109,8 +109,7 @@ def quiz ():
 # defined a function to begin the Quiz
 def begin ():
     ready = input("Would you like to begin? (y/n) ").lower()
-    if ready != 'y' and ready != 'n':
-        begin()
+    if ready != 'y' and ready != 'n': begin()
     elif ready == 'n' : quit()
     quiz()
 
@@ -126,16 +125,15 @@ def replay():
     if replay_response == 'y':
         quiz()
     elif replay_response == 'n':
-        some_sleep(0.2)
         winner = max(user_score, key=lambda doc: doc[1])
+        some_sleep(0.2)
         print(user_score)
         for x in winner:
-            print(f"\nHey! {x!r} got the highest point ")
+            print(f"\nHey {x!r} got the highest point ")
             break
         average_score = []
         for x in user_score:
-            for y in x:
-                average_score.append(y)
+            for y in x: average_score.append(y)
                 
         only_numbers = [x for x in average_score if isinstance(x,int)]
         len_of_scores = len(only_numbers)
