@@ -1,19 +1,20 @@
 import time
 import random
 
+
 user_score = []
 
 questions_dict = {
-    # 'What is 10 multiplied by 10? ': ['100'],
-    # 'What is the capital of Nigeria? ' : ['lagos'],
-    # 'Which element is said to keep bones strong?': ['calcium'],
-    # 'What is the main ingredient in guacamole?' : ['avocado'],
+    'What is 10 multiplied by 10? ': ['100'],
+    'What is the capital of Nigeria? ' : ['lagos'],
+    'Which element is said to keep bones strong?': ['calcium'],
+    'What is the main ingredient in guacamole?' : ['avocado'],
     'Rojo is the Spanish word for which colour?' : ['red'],
-    # 'The logo for luxury car maker Porsche features which animal?' : ['horse'],
-    # 'In tennis, what piece of fruit is found at the top of the mens Wimbledon trophy?' : ['pineapple'],
+    'The logo for luxury car maker Porsche features which animal?' : ['horse'],
+    'In tennis, what piece of fruit is found at the top of the mens Wimbledon trophy?' : ['pineapple'],
     'What is a female elephant called?' : ['cow'],
-    # 'Franz Josef Strauss Airport is located in which country?' : ['germany'],
-    # 'Caledonia was the Roman name for which modern day country?' : ['scotland']
+    'Franz Josef Strauss Airport is located in which country?' : ['germany'],
+    'Caledonia was the Roman name for which modern day country?' : ['scotland']
     }
 
 
@@ -23,8 +24,13 @@ def some_sleep(x):
 
 
 # converting my questionsss dictionary to a list so I can call random.shuffle on it
-questions_list = list(questions_dict.items())
-random.shuffle(questions_list)
+
+
+# for x in questions_list in range(3):
+#     print(x)
+#     new_questions_list.append(x)
+    
+
 
 # defining my function to print the questions and validate the answers
 def quiz ():
@@ -39,8 +45,23 @@ def quiz ():
     some_sleep(0.3)
     print(f'\nHey {User_info!r}, Welcome to your quiz: ')
     
+    def tried():
+        while True:
+            try:
+                global n_o_q
+                n_o_q = int(input('\nHow many questions do you want? '))
+            except ValueError:
+                print('Please enter a number from 1-20 ')
+                continue
+            else:
+                break
+    tried()
+    questions_list = list(questions_dict.items())
+    random.shuffle(questions_list)
+    new_questions_list = questions_list[0:n_o_q]
 
-    for questions, options in questions_list:
+
+    for questions, options in new_questions_list:
         print (f"\n{questions}") 
         answer = input()
         answer = answer.lower()
@@ -68,33 +89,35 @@ def quiz ():
     
     print(f'\nYou answered {correct_answer} correctly!')
     print(f'\nYou failed {failed_answer}')
-    Percentagemath = int(correct_answer/2 * 100)
+    Percentagemath = int(correct_answer/n_o_q * 100)
     user_score_percentage += Percentagemath
     print(f'\nYou got {Percentagemath}%')
 
     user_score.append((User_info,user_score_percentage))
  
                       
-#defined a function to begin the Quiz
+# defined a function to begin the Quiz
 def begin ():
     ready = input("Would you like to begin? (y/n) ").lower()
     if ready != 'y' and ready != 'n':
         begin()
     quiz()
 
-#Call the begin function
+# Call the begin function
 begin()
+# quiz()
    
    
 some_sleep(0.2)
 iop = True
 
 def replay():
-    replay_response = input('\nDo you want to play again? ').lower()
+    replay_response = input('\nDo you want to play again? (y/n) ').lower()
     if replay_response == 'y':
         quiz()
     elif replay_response == 'n':
-        winner = max(user_score, key=lambda tup: tup[1])
+        some_sleep(0.2)
+        winner = max(user_score, key=lambda doc: doc[1])
         print(user_score)
         for x in winner:
             print(f"\nHey! {x!r} got the highest point ")
@@ -118,4 +141,3 @@ def replay():
 
 while iop: replay()
     
-
