@@ -4,8 +4,6 @@ import random
 
 user_score = []
 
-global questions_dict
-
 questions_dict = {
     'What is 10 multiplied by 10? ': ['100'],
     'What is the capital of Nigeria? ' : ['lagos'],
@@ -16,16 +14,23 @@ questions_dict = {
     'In tennis, what piece of fruit is found at the top of the mens Wimbledon trophy?' : ['pineapple'],
     'What is a female elephant called?' : ['cow'],
     'Franz Josef Strauss Airport is located in which country?' : ['germany'],
-    'Caledonia was the Roman name for which modern day country?' : ['scotland']
+    'Caledonia was the Roman name for which modern day country?' : ['scotland'],
+    'What was Meta Platforms Inc formerly known as?' : ['facebook'],
+    'What is the currency of Poland?' : ['zloty'],
+    'Which is the only planet in our solar system not named after a Roman or Greek god?' : ['earth'],
+    'What is the capital of Brazil?' : ['brasilia'],
+    'In which year did the Beatles Band begin?' : ['1956'],
+    'When was the first World War fought?' : ['1914'],
+    'How many bones are there in the human body?' : ['206'],
+    'Who is the founder of Apple Company?' : ['steve jobs'],
+    'Which planet is closest to Sun?' : ['mercury'],
+    'Which is the largest planet of the Solar System?' : ['jupiter']
     }
 
 
 # defining a sleep function to control the print timer on the terminal
 def some_sleep(x):
     return time.sleep(x)
-
-
-# converting my questionsss dictionary to a list so I can call random.shuffle on it
 
 # defining my function to print the questions and validate the answers
 def quiz ():
@@ -138,6 +143,7 @@ def replay():
         for i in only_numbers:
             total += i
         avg = int(total / len_of_scores)
+        some_sleep(0.3)
         print(f'\nThe average score amongst all users is {avg!r}%')
         exit()
     else:
