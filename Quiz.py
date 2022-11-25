@@ -71,19 +71,16 @@ def quiz():
     new_questions_list = questions_list[0:n_o_q]
 
     some_sleep(0.2)
-    for questions, options in new_questions_list:
+
+    for questions, options in new_questions_list:  # A for loop to print the questions and validate the answers
         print(f"\n{questions}")
         answer = input().lower()
-        # answer = answer.lower()
 
-    # validate answer
-        while answer == '':
+        while answer == '':  # validate user answer
             print(questions)
             answer = input('Pls, make an input: ').lower()
-            # answer = answer.lower()
 
-    # Check for the right answer
-        right_answer = options[0]
+        right_answer = options[0]  # Check for the right answer
         if answer == right_answer:
             some_sleep(0.2)
             print('\nCorrect Answer!')
