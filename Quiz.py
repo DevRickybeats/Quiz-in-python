@@ -36,8 +36,6 @@ def some_sleep(x):
 
 def quiz():
     correct_answer = 0
-    failed_answer = 0
-    total_score = 0
     user_score_percentage = 0
 
     User_info = input('Hello, What is your name? ')
@@ -60,6 +58,7 @@ def quiz():
                 break
 
     tried()
+
     while True:
         if n_o_q > length:
             print(f'Out of range, Please enter a number from 1-{length} ')
@@ -89,14 +88,11 @@ def quiz():
             some_sleep(0.2)
             print('\nCorrect Answer!')
             correct_answer += 1
-            total_score += 1
         else:
             some_sleep(0.2)
-            print(f'\nWrong, The answer is {right_answer}')
-            failed_answer += 1
+            print(f'Quiz.py')
 
-    print(f'\nYou answered {correct_answer} correctly!')
-    print(f'\nYou failed {failed_answer}')
+    print(f'\nYou answered {correct_answer} correctly! out of {n_o_q}.')
     Percentagemath = int(correct_answer/n_o_q * 100)
     user_score_percentage += Percentagemath
     print(f'\nYou got {Percentagemath}%')
@@ -104,7 +100,7 @@ def quiz():
     user_score.append((User_info, user_score_percentage))
 
 
-# defined a function to begin the Quiz
+# Defined a function to begin the Quiz
 def begin():
     ready = input("Would you like to begin? (y/n) ").lower()
     if ready != 'y' and ready != 'n':
