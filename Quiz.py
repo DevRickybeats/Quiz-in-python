@@ -85,7 +85,7 @@ def quiz():
             correct_answer += 1
         else:
             some_sleep(0.2)
-            print(f'Quiz.py')
+            print(f'Wrong, The right answer is {right_answer}.')
 
     print(f'\nYou answered {correct_answer} correctly! out of {n_o_q}.')
     Percentagemath = int(correct_answer/n_o_q * 100)
@@ -105,7 +105,7 @@ def begin():
     quiz()
 
 
-begin() # Call the begin function
+begin()  # Call the begin function
 
 
 some_sleep(0.2)
@@ -117,13 +117,13 @@ def replay():
     if replay_response == 'y':
         quiz()
     elif replay_response == 'n':
-        winner = max(user_score, key=lambda doc: doc[1])
-        some_sleep(0.2)
 
         for x, y in user_score:
             print(f'User: {x} scored {y}%')
 
-        # print(user_score)
+        winner = max(user_score, key=lambda doc: doc[1])
+        some_sleep(0.2)
+
         for x in winner:
             print(f"\nHey User: {x!r} got the highest score. ")
             break
