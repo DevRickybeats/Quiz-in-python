@@ -31,8 +31,6 @@ questions_dict = {
 def some_sleep(x):
     return time.sleep(x)
 
-# defining my function to print the questions and validate the answers
-
 
 def quiz():
     correct_answer = 0
@@ -107,8 +105,7 @@ def begin():
     quiz()
 
 
-# Call the begin function
-begin()
+begin() # Call the begin function
 
 
 some_sleep(0.2)
