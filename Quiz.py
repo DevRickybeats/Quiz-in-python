@@ -108,9 +108,6 @@ def begin():
 begin()  # Call the begin function
 
 
-some_sleep(0.2)
-repeat = True
-
 
 def replay():
     replay_response = input('\nDo you want to play again? (y/n) ').lower()
@@ -145,6 +142,7 @@ def replay():
         print('Please make a valid input')
         replay()
 
-
+some_sleep(0.2)
+repeat = True
 while repeat:
     replay()
